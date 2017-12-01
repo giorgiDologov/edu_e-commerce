@@ -66,6 +66,7 @@ public class BookstoreApplication implements CommandLineRunner {
 		
 		userService.createUser(user1, userRoles);
 		
+		if(userService.findByUsername("teacher1")==null) {
 		User user2 = new User();
 		user2.setFirstName("Daniel");
 		user2.setLastName("Dr Teacher");
@@ -83,12 +84,13 @@ public class BookstoreApplication implements CommandLineRunner {
 		 user2.setUserImage(baos.toByteArray());
 		
 		userService.createUser(user2, userRoles2);
-		if(user2.getNewMessages()<1) {
+		
 		Conversation conversation = conversationService.openConversation(userService.findById(1), user2);
 		messageService.openMessage(conversation,userService.findById(1),"Welcome message from me. Yo!");
-		user2.setNewMessages(1);
-			}
 		
+		}
+		
+		if(userService.findByUsername("teacher2")==null) {
 		User user3 = new User();
 		user3.setFirstName("Tim");
 		user3.setLastName("Teacher");
@@ -106,16 +108,17 @@ public class BookstoreApplication implements CommandLineRunner {
 		 user3.setUserImage(baos.toByteArray());
 		
 		userService.createUser(user3, userRoles3);
-		if(user3.getNewMessages()<1) {
+		
 		Conversation conversation = conversationService.openConversation(userService.findById(1), user3);
 		messageService.openMessage(conversation,userService.findById(1),"Welcome message from me. Yo!");
-		user3.setNewMessages(1);
+		
 		}
 		
+		if(userService.findByUsername("teacher3")==null) {
 		User user4 = new User();
 		user4.setFirstName("Tony");
 		user4.setLastName("Teacher");
-		user4.setUsername("teacher3'");
+		user4.setUsername("teacher3");
 		user4.setPassword(SecurityUtility.passwordEncoder().encode("t"));
 		user4.setEmail("teacher3@gmail.com");
 		user4.setTeacher(true);
@@ -129,12 +132,13 @@ public class BookstoreApplication implements CommandLineRunner {
 		 user4.setUserImage(baos.toByteArray());
 		
 		userService.createUser(user4, userRoles4);
-		if(user4.getNewMessages()<1) {
+		
 		Conversation conversation = conversationService.openConversation(userService.findById(1), user4);
 		messageService.openMessage(conversation,userService.findById(1),"Welcome message from me. Yo!");
-		user4.setNewMessages(1);
+		
 		}
 		
+		if(userService.findByUsername("teacher4")==null) {
 		User user5 = new User();
 		user5.setFirstName("Terry");
 		user5.setLastName("Teacher");
@@ -152,10 +156,11 @@ public class BookstoreApplication implements CommandLineRunner {
 		 user5.setUserImage(baos.toByteArray());
 		
 		userService.createUser(user5, userRoles5);
-		if(user5.getNewMessages()<1) {
+		
 		Conversation conversation = conversationService.openConversation(userService.findById(1), user5);
 		messageService.openMessage(conversation,userService.findById(1),"Welcome message from me. Yo!");
-		user5.setNewMessages(1);
+		
 		}
+		
 	}
 }
